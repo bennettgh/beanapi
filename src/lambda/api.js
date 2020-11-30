@@ -7,7 +7,9 @@ exports.handler = async (event, context) => {
 
   // november
   if (todaysDate === 30) {
-    response = "Hello from the BeanAPI"
+    response = {
+      message: "Hello from the BeanAPI",
+    }
   }
 
   // december
@@ -113,6 +115,6 @@ exports.handler = async (event, context) => {
 
   return {
     statusCode: 200,
-    body: response
+    body: JSON.stringify(response)
   };
 };
