@@ -3,18 +3,18 @@ exports.handler = async (event, context) => {
   const todaysDate = today.getDate();
 
   // the return value
-  let response;
+  let response = {
+    message: null,
+  }
 
   // november
   if (todaysDate === 30) {
-    response = {
-      message: "Hello from the BeanAPI",
-    }
+    response.message = "Hello from the BeanAPI"
   }
 
   // december
   if (todaysDate === 1) {
-
+    response.message = "it is the first day oF the high eneRgy advent calendar. encOded in this message is the name of our Gayest friend. to confirm you have cracked the code, send a coded message to high energy"
   }
 
   if (todaysDate === 2) {
