@@ -1,12 +1,26 @@
 exports.handler = async (event, context) => {
-  const today = new Date((new Date).toLocaleString("en-US"));
-  const todaysDate = today.getDate();
+  // const today = new Date((new Date).toLocaleString("en-US"));
+  // const todaysDate = today.getDate();
+
+  let options = {
+    timeZone: 'America/Toronto',
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+  },
+  formatter = new Intl.DateTimeFormat([], options);
+
+  const todaysDate = new Date(formatter.format(new Date())).getDate()
+
   return {
     statusCode: 200,
     headers: {
       "Access-Control-Allow-Origin": "*"
     },
-    body: JSON.stringify(todaysDate + "----" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds())
+    body: JSON.stringify(todaysDate)
   };
 
 
