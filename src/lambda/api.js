@@ -6,7 +6,7 @@ exports.handler = async (event, context) => {
     headers: {
       "Access-Control-Allow-Origin": "*"
     },
-    body: JSON.stringify(todaysDate)
+    body: JSON.stringify(todaysDate + "----" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds())
   };
 
 
