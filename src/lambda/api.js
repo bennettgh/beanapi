@@ -15,16 +15,6 @@ exports.handler = async (event, context) => {
 
   const todaysDate = new Date(formatter.format(new Date())).getDate()
 
-  return {
-    statusCode: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*"
-    },
-    body: JSON.stringify(todaysDate)
-  };
-
-
-
   // the return value
   let response = {
     message: null,
