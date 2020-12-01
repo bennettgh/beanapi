@@ -1,6 +1,15 @@
 exports.handler = async (event, context) => {
-  const today = new Date();
+  const today = new Date((new Date).toLocaleString("en-US"));
   const todaysDate = today.getDate();
+  return {
+    statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*"
+    },
+    body: JSON.stringify(todaysDate)
+  };
+
+
 
   // the return value
   let response = {
@@ -14,7 +23,7 @@ exports.handler = async (event, context) => {
 
   // december
   if (todaysDate === 1) {
-    //response.message = "it is the first day oF the high eneRgy advent calendar. encOded in this message is the name of our Gayest friend. to confirm you have cracked the code, send a coded message to high energy"
+    response.message = "it is the first day oF the high eneRgy advent calendar. encOded in this message is the name of our Gayest friend. to confirm you have cracked the code, send a coded message to high energy"
   }
 
   if (todaysDate === 2) {
